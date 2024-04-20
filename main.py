@@ -4,8 +4,12 @@ def fib(n):
     return fib(n - 1) + fib(n - 2)
 
 def fibShiftCipher(msg):
+    tmp = msg
+    msg = msg.upper()
+
     encoded = ''
     cnt = 1
+
     for char in msg:
         unicode = ord(char)
         shift = fib(cnt)
@@ -19,7 +23,7 @@ def fibShiftCipher(msg):
 
         cnt += 1
 
-    if msg.islower():
+    if tmp.islower():
         return encoded.lower()
     return encoded.upper()
 
